@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery - Lauren Hayoon Kim</title>
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <div class="two-col-layout">
+    <!-- LEFT COLUMN: Name + Navigation -->
+    <aside class="side-nav">
+      <h1 class="side-nav-name">
+        <a href="index.html" style="text-decoration: none; color: inherit;">
+          Lauren<br>Hayoon<br>Kim
+        </a>
+      </h1>
+      <nav class="side-nav-links">
+        <ul>
+          <li><a href="gallery.html" class="active">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- RIGHT COLUMN: Gallery content -->
+    <main class="main-content">
+      <div class="content-wrapper">
+        <h2>Work</h2>
+        <p>
+          A showcase of my work in various mediums and styles, from still life to fashion and garment design.
+        </p>
+
+        <!-- 
+          MASONRY / MULTI-COLUMN GALLERY:
+          Just put each item in .abstract-gallery. 
+          We'll let CSS do column-based flow.
+        -->
+        <div class="abstract-gallery">
+
+          <!-- ITEM 1 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/line.jpg" alt="Vertical Art 1" />
+              <div class="image-overlay">
+                <div class="overlay-title">Line.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 2 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/gesture.jpg" alt="Art 2" />
+              <div class="image-overlay">
+                <div class="overlay-title">Gesture.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 3 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/fashionfigure.jpg" alt="Art 3" />
+              <div class="image-overlay">
+                <div class="overlay-title">Figure.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 4 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/portrait1.jpg" alt="Art 4" />
+              <div class="image-overlay">
+                <div class="overlay-title">Portrait.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 5 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/compose.jpg" alt="Art 5" />
+              <div class="image-overlay">
+                <div class="overlay-title">Compose.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ITEM 6 -->
+          <div class="gallery-item">
+            <div class="image-wrapper">
+              <img src="images/development.jpg" alt="Art 5" />
+              <div class="image-overlay">
+                <div class="overlay-title">Development.</div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.abstract-gallery -->
+      </div><!-- /.content-wrapper -->
+    </main>
+  </div><!-- /.two-col-layout -->
+
+</body>
+</html>

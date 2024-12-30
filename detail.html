@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Artwork Detail - Lauren Hayoon Kim</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="about-wrapper">
+
+    <!-- LEFT COLUMN: Name + Navigation -->
+    <aside class="about-sidebar">
+      <div class="about-name">
+        <h1>
+          <a href="index.html" style="text-decoration: none; color: inherit;">
+            Lauren<br>Hayoon<br>Kim
+          </a>
+        </h1>
+      </div>
+      <nav class="about-nav">
+        <ul>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- RIGHT COLUMN: Artwork Detail -->
+    <main class="about-content">
+      <section class="profile-section" id="detailContainer" style="flex-direction: column; gap: 2rem;">
+        <h2 id="detailTitle">Title Here</h2>
+
+        <!-- JS will insert multiple images here -->
+        <div id="detailImages" class="detail-images" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <!-- Artwork images get injected by scripts.js -->
+        </div>
+
+        <p id="detailDescription">Description here</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- scripts.js will handle the data injection -->
+  <script src="scripts.js"></script>
+</body>
+</html>

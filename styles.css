@@ -1,0 +1,314 @@
+/* ------------------------------------------------
+   1) BASIC RESET & VARIABLES
+-------------------------------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-color: #f5f2ec;
+  --text-color: #2f2f2f;
+  --heading-color: #1f1f1f;
+  --accent-color: #888;
+  --font-body: "Open Sans", sans-serif;
+  --font-heading: "Merriweather", serif;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* ------------------------------------------------
+   2) TWO-COLUMN LAYOUT (About/Gallery/Contact)
+   - Side nav on left, main content on right
+-------------------------------------------------- */
+.two-col-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* LEFT COLUMN: side nav */
+.side-nav {
+  flex: 0 0 220px;
+  background-color: #fff;
+  border-right: 1px solid var(--accent-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.side-nav-name {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  line-height: 1.2;
+  margin-bottom: 2rem;
+  color: var(--heading-color);
+}
+
+.side-nav-links ul {
+  list-style: none;
+  margin-top: 1rem;
+}
+.side-nav-links li {
+  margin-bottom: 1rem;
+}
+.side-nav-links a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 500;
+  transition: opacity 0.3s ease;
+}
+.side-nav-links a:hover {
+  opacity: 0.7;
+}
+.side-nav-links a.active {
+  border-bottom: 2px solid var(--text-color);
+  font-weight: 600;
+}
+
+/* RIGHT COLUMN: main content */
+.main-content {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: var(--bg-color);
+}
+
+.content-wrapper {
+  max-width: 700px;
+  width: 100%;
+}
+
+.content-wrapper h2 {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+
+.content-wrapper p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+/* Stack on small screens */
+@media (max-width: 900px) {
+  .two-col-layout {
+    flex-direction: column;
+  }
+  .side-nav {
+    border-right: none;
+    border-bottom: 1px solid var(--accent-color);
+    flex: none;
+  }
+  .main-content {
+    padding: 2rem;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .content-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* ------------------------------------------------
+   3) ABOUT PAGE
+   - Half text, half image approach
+-------------------------------------------------- */
+.about-split {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1rem;
+}
+
+.about-left {
+  flex: 1;
+}
+.about-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+  letter-spacing: 1px;
+}
+
+.about-right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-right .about-photo {
+  width: 100%;
+  height: auto;
+  object-fit: cover; 
+  border-radius: 4px; 
+}
+
+@media (max-width: 800px) {
+  .about-split {
+    flex-direction: column;
+  }
+  .about-right .about-photo {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+/* ------------------------------------------------
+   4) ABSTRACT GALLERY with MASONRY 
+   (multi-column layout)
+-------------------------------------------------- */
+.abstract-gallery {
+  /* Instead of display: grid, use columns for masonry effect */
+  column-count: 2;    /* or 3, if you want more columns */
+  column-gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* Each .gallery-item flows top to bottom in each column. */
+.gallery-item {
+  display: inline-block;     /* critical for multi-column layout */
+  width: 100%;               /* fill the column width */
+  margin-bottom: 1.5rem;     /* vertical spacing between items */
+  position: relative;        /* for the overlay */
+}
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  display: block;
+  /* no forced height, let it auto */
+}
+
+.image-wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: contain; 
+  display: block;
+}
+
+/* The overlay for hover */
+.image-overlay {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.image-wrapper:hover .image-overlay {
+  opacity: 1;
+}
+
+.overlay-title {
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem; 
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+/* ------------------------------------------------
+   5) LANDING PAGE (index.html) 
+   half-and-half layout
+-------------------------------------------------- */
+.landing-page-split {
+  display: flex;
+  min-height: 100vh;
+}
+
+.landing-left {
+  position: relative;
+  flex: 1;
+  overflow: hidden;
+}
+.vertical-year {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  position: absolute;
+  top: 2rem;
+  left: 1rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #000;
+  opacity: 0.8;
+}
+.cover-image {
+  width: 100%;
+  height: 100%;
+}
+.cover-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.landing-right {
+  flex: 1;
+  background-color: var(--bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 4rem;
+}
+.contents-heading {
+  font-family: var(--font-heading);
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--heading-color);
+}
+.contents-quote {
+  font-style: italic;
+  margin-bottom: 2rem;
+  max-width: 450px;
+  color: var(--accent-color);
+}
+.contents-nav ul {
+  list-style: none;
+}
+.contents-nav li {
+  margin-bottom: 1rem;
+}
+.contents-nav a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-weight: 600;
+  transition: opacity 0.3s ease;
+}
+.contents-nav a:hover {
+  opacity: 0.7;
+}
+
+@media (max-width: 900px) {
+  .landing-page-split {
+    flex-direction: column;
+  }
+  .landing-left, .landing-right {
+    width: 100%;
+    height: auto;
+  }
+  .landing-right {
+    padding: 2rem;
+  }
+  .vertical-year {
+    position: static;
+    writing-mode: horizontal-tb;
+    transform: none;
+    margin-bottom: 1rem;
+  }
+}
